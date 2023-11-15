@@ -1,20 +1,20 @@
 package searching;
 
-public class CeilingOfANumber {
+public class FloorOfANumber {
 	
 	/*
-	 * Ceiling of a number is the minimum number which is greater than or equals to that number
+	 * Floor of a number is the maximum number which is smaller than or equals to that number
 	 */
 	
 	public static void main(String[] args) {
 		Integer[] arr = {1, 4, 9, 23, 26, 36, 48, 57, 60, 68, 74, 79, 81, 87, 105};
-		int target = 59;
+		int target = 57;
 		
-		System.out.println(arr[ceiling(arr, target)]); 
+		System.out.println(arr[floor(arr, target)]); 
 		
 	}
 	
-	private static int ceiling(Integer[] arr, int target) {
+	private static int floor(Integer[] arr, int target) {
 		
 		int start=0, end=arr.length-1;
 		
@@ -23,6 +23,8 @@ public class CeilingOfANumber {
 		while(start<=end) {
 			
 			mid=(start+end)/2;
+			
+			//System.out.println(arr[mid]);
 			
 			if(target > arr[mid]) {
 				start=mid+1;
@@ -37,7 +39,7 @@ public class CeilingOfANumber {
 		/*
 		 * At this point, start and end will cross each other. so, start > end 
 		 */
-		return (start);
+		return (end);
 		
 		
 	}
