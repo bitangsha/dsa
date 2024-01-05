@@ -11,16 +11,12 @@ public class CycleSort {
 	}
 	
 	private static int[] sort(int[] arr) {
-		int i=0, temp;
+		int i=0;
 		while(true) {
-			//System.out.println("i="+i);
-			//print(arr);
 			if(i==arr.length-1)
 				break;
 			if(arr[i]!=i+1) {
-				temp=arr[i];				
-				arr[i]=arr[arr[i]-1];
-				arr[temp-1]=temp;
+				swap(arr, i, arr[i]-1);
 			}else {
 				i++;
 			}
@@ -30,6 +26,12 @@ public class CycleSort {
 	
 	private static void print(int[] arr) {
 		System.out.println(Arrays.toString(arr));
+	}
+	
+	private static void swap(int[] arr, int pos1, int pos2) {
+		int temp=arr[pos1];
+		arr[pos1]=arr[pos2];
+		arr[pos2]=temp;
 	}
 
 }
